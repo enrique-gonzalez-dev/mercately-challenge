@@ -1,3 +1,86 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+ /* apply a natural box layout model to all elements, but allowing components to change */
+@import "font-awesome";
+
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body{
+    font-family: 'Lato', sans-serif;
+}
+
+:root{
+    --main-color: rgb(12, 104, 216);
+}
+
+.navbar{
+    background-color: var(--main-color);
+    margin-top: 0;
+    padding: 10px 0;
+    color: #ffffff;
+}
+.container{
+    max-width: 70rem;
+    margin: 0 auto;
+}
+.text-center{
+    text-align: center;
+}
+.nav-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav-item{
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 12px;
+    transition: ease .3s;
+}
+.nav-item:last-of-type{
+    margin: 0 0 0 12px;
+    position: relative;
+}
+
+.nav-item:hover{
+    color: #cacaca;
+}
+
+footer {
+    background-color: var(--main-color);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    min-height: 80px;
+    padding: 20px 0;
+    color: #ffffff;
+}
+.d-flex{
+    display: flex;
+}
+
+.space-between{
+    justify-content: space-between;
+}
+
+.card-m{
+    background-color: #f1f1f1;
+    padding: 5px 20px;
+    border-radius: 5px;
+    max-width: 60%;
+    margin: 50px auto;
+    box-shadow: -2px 2px 3px #cacaca;
+}
+
+.products-q{
+    position: absolute;
+    bottom: -3px;
+    font-size: 12px;
+}
