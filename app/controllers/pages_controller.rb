@@ -1,6 +1,16 @@
 class PagesController < ApplicationController
-    
-    def home    
+    before_action :authenticate_user!
+      
+    def home
+        if current_user && current_user.admin
+            redirect_to products_path
+        else
+            redirect_to "/shop"
+        end
+    end
+
+    def view_product
+        @product = Product.find(params[:id])
     end
 
     def shop

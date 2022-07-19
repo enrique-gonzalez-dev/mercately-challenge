@@ -1,29 +1,35 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <%= render partial: "layouts/breadcrumb", locals: { previus_message: "Volver al listado", previus: users_path, current: "Ver usuario" } %>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+<div class="container">
+  <h3>
+    <strong>Name:</strong>
+    <%= @user.name %>
+  </h3>
+  
+  <p>
+    <strong>Last name:</strong>
+    <%= @user.last_name %>
+  </p>
+  
+  <p>
+    <strong>Email:</strong>
+    <%= @user.email %>
+  </p>
+  
+  <p>
+    <strong>Phone:</strong>
+    <%= @user.phone %>
+  </p>
+  
+  <p>
+    <strong>Tipo de usuario:</strong>
+    <%= @user.admin? ? "Usuario" : "Cliente" %>
+  </p>
+</div>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @user.phone %>
-</p>
-
-<p>
-  <strong>Admin:</strong>
-  <%= @user.admin %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<div class="container">
+  <%= link_to 'Editar', edit_user_path(@user), class: "link-basic" %> |
+  <%= link_to 'Regresar', users_path, class: "link-basic" %>
+</div>

@@ -1,1 +1,25 @@
+<div class="container">
+  <%= render partial: "layouts/breadcrumb", locals: { previus_message: "Volver al inicio", previus: root_path, current: "Lista de compras" } %>
+</div>
 
+<div class="container">
+  <h2>Compras</h2>  
+  <div class="cart-index-grid">
+    <% @active_carts.each do |cart| %>
+      <%= render partial: "cart_card", locals: { cart: cart }%>
+    <% end %>
+  </div>
+  <div class="container">
+    <hr>
+  </div>
+  <div class="container">
+    <h2>Compras archivadas</h2>
+    <div class="cart-index-grid">
+      <% @archived_carts.each do |cart| %>
+        <%= render partial: "cart_card", locals: { cart: cart }%>
+      <% end %>
+    </div>
+  </div>
+  <br>
+  <br>
+</div>

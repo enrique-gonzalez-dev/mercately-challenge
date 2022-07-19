@@ -1,0 +1,30 @@
+<div class="container">
+  <%= render partial: "layouts/breadcrumb", locals: { previus_message: "Volver a lista", previus: carts_path, current: "Carrito" } %>
+</div>
+<div class="container">
+<h3>Mi carrito</h3>
+<% if @cart.cart_items %>
+  <% @cart.cart_items.each do |cart_item| %>
+    <div class="cart-item">
+        <div>
+          <div class="product-info">
+            <a href="/products/<%= cart_item.product.id %>" class="link-basic">
+              <h3><%= cart_item.product.title %></h3>
+            </a>
+            <div class="item-description">
+              <p> Description: <%= cart_item.product.description %></p>
+              <p> Cantidad:<strong> <%= cart_item.quantity %></strong></p>
+              <p> Total:<strong> <%= cart_item.total %></strong></p>
+            </div>
+
+            <div class="actions"><%= link_to cart_item, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'px-5 btn btn-danger', style: "padding: 5px 10px" do %> Eliminar </i> <% end %></div>
+          </div>
+        </div>
+    </div>
+  <% end %>
+<% else %>
+  <h4>Comience agregando articulos a su carrito</h4>
+  <a href="/shop" class="link-basic">Ver Todo</a>
+<% end %>
+
+</div>

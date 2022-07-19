@@ -1,5 +1,12 @@
-<h1>New User</h1>
+<div class="container">
+  <%= render partial: "layouts/breadcrumb", locals: { previus_message: "Volver al listado", previus: root_path, current: "Nuevo usuarios" } %>
+</div>
 
-<%= render 'form', user: @user %>
+<div class="container">
+    <h2>Nuevo Usuario</h2>
+    
+    <%= render 'form', user: @user %>
+    
+    <%= link_to 'Regresar', users_path, class: "link-basic" %>
+</div>
 
-<%= link_to 'Back', users_path %>

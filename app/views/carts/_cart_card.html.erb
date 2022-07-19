@@ -1,0 +1,23 @@
+<div class="cart-card">
+  <div class="d-flex space-between align-center">
+    <div class="content">
+      <% if current_user.admin? %>
+      <p>Cliente: <b><%= cart.user.label %></b></p>
+      <p>Fecha de creación: <b><%= cart.created_at.strftime("%d - %m - %Y") %></b></p>
+        
+      <% end %>
+      <p>Folio: <b><%= cart.id %></b></p>
+      <p>Total de prodcutos: <b><%= cart.total_products %></b></p>
+      <p>Monto total: <b><%= cart.total_sale %></b></p>
+    </div>
+    <div class="actions">
+      <p>
+        <%= link_to cart, class: 'px-5 btn-action' do %> <i class="fa-solid fa-eye"></i> <% end %>
+        <%= link_to cart, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'px-5 btn-action' do %> <i class="fa-solid fa-trash"></i> <% end %>
+        <% if cart.active? %>
+          <%= link_to "/cart/#{ cart.id }/update_status", method: :put, data: { confirm: '¿Estás seguro?' }, class: 'px-5 btn-action' do %> <i class="fa-regular fa-floppy-disk"></i> <% end %>
+        <% end %>
+      </p>
+    </div>
+  </div>
+</div>

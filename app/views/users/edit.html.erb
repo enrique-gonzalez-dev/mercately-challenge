@@ -1,6 +1,12 @@
-<h1>Editing User</h1>
+<div class="container">
+  <%= render partial: "layouts/breadcrumb", locals: { previus_message: "Volver al usuario", previus: @user, current: "Editar usuario" } %>
+</div>
 
-<%= render 'form', user: @user %>
-
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<div class="container">
+    <h2>Editar</h2>
+    
+    <%= render 'form', user: @user %>
+    
+    <%= link_to 'Ver usuario', @user, class: "link-basic" %> |
+    <%= link_to 'Ver listado de productos', users_path, class: "link-basic" %>
+</div>

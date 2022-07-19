@@ -1,3 +1,6 @@
+<div class="container" id="shop-message">
+</div>
+
 <div class="container">
   <div class="title-bar d-flex space-between align-center">
     <div class="title">
@@ -36,5 +39,20 @@
     document.location.search = params;
     
   });
+
+  const setItemToCart = async (qty, productId) => {
+    console.log(qty, productId);
+    const url = `/cart/add_item?qty=${qty}&product_id=${productId}`;
+    const span = document.querySelector("#products-cart-icon");
+    try {
+      const fetchedData = await fetch(url, { method: 'POST' });
+      const data = await fetchedData.json();
+      document.querySelector("#shop-message").innerHTML = `<p> ${qty} productos agregados correctamente </p>`;
+      span.textContent = data["total_products"]
+      
+    } catch (error) {
+      throw error;
+    }
+  }
 
 </script>

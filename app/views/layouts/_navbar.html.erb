@@ -7,13 +7,30 @@
         </h2>
       </div>
       <div class="nav-items">
-        <a href="/shop" class="nav-item">Comprar</a>
-        <a href="/products" class="nav-item">Inventario</a>
-        <a href="/carts" class="nav-item">Mis pedidos</a>
-        <a href="/carts/<%= 1 %>" class="nav-item">
-          <i class="fa-solid fa-cart-shopping"></i>
-          <span class="products-q">3</span>
-        </a>
+       <% if user_signed_in? %>
+          <strong><%= current_user.email %></strong>
+          <%= link_to 'Editar perfil', edit_user_path(current_user), :class => 'nav-item' %> |
+          <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete, :class => 'nav-item'  %>
+        <% else %>
+          <%= link_to "Registro", new_user_path, :class => 'nav-item'  %> |
+          <%= link_to "Login", new_user_session_path, :class => 'nav-item'  %>
+        <% end %>
+
+        <% if current_user %>
+          <% if current_user.admin %>
+            <a href="/shop" class="nav-item">Shop</a>
+            <a href="/products" class="nav-item">Inventario</a>
+            <a href="/carts" class="nav-item">Pedidos</a>
+            <%= link_to "Usuarios", users_path, class: "nav-item" %>
+          <% else %>
+            <a href="/shop" class="nav-item">Comprar</a>
+            <a href="/carts" class="nav-item">Mis pedidos</a>
+            <a href="/carts/<%= current_user.last_cart&.id %>" class="nav-item">
+              <i class="fa-solid fa-cart-shopping"></i>
+              <span class="products-q" id="products-cart-icon"><%= current_user.last_cart&.total_products %></span>
+            </a>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>

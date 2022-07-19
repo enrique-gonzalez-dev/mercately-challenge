@@ -11,32 +11,49 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="d-flex">
+    <div class="custom-field">
+      <%= form.label "Nombre" %>
+      <%= form.text_field :name %>
+    </div>
+    <div class="custom-field" style="margin-left: 10px;">
+      <%= form.label "Apellidos" %>
+      <%= form.text_field :last_name %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
+  <div class="d-flex">
+    <div class="custom-field">
+      <%= form.label "Correo electrónico" %>
+      <%= form.text_field :email %>
+    </div>
+    <div class="custom-field" style="margin-left: 10px;">
+      <%= form.label :phone %>
+      <%= form.text_field :phone %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name %>
+  <div class="custom-field">
+    <%= form.label "Contraseña" %>
+    <% if @minimum_password_length %>
+    <em>. Minimo (<%= @minimum_password_length %>) carácteres</em>
+    <% end %><br />
+    <%= form.password_field :password, autocomplete: "new-password", placeholder: "Contraseña" %>
   </div>
 
-  <div class="field">
-    <%= form.label :phone %>
-    <%= form.text_field :phone %>
+  <div class="custom-field">
+    <%= form.label "Confirmar contraseña" %><br />
+    <%= form.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
-  <div class="field">
-    <%= form.label :admin %>
-    <%= form.check_box :admin %>
-  </div>
+  <% if current_user && current_user.admin %>
+    <div class="custom-field d-flex align-center">
+      <%= form.label "El usuario es administrador" %>
+      <%= form.check_box :admin %>
+    </div>
+  <% end %>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Registrar", class: "btn btn-main" %>
   </div>
 <% end %>
