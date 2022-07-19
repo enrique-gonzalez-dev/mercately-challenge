@@ -1,0 +1,10 @@
+<div class="container">
+  <%= render partial: "layouts/breadcrumb", locals: { previus_message: "Volver al listado", previus: products_path, current: "Ver producto" } %>
+</div>
+<div class="container">
+    <h2>Nuevo Producto</h2>
+    
+    <%= render 'form', product: @product %>
+    
+    <%= link_to 'Regresar', products_path, class: "link-basic" %>
+</div>

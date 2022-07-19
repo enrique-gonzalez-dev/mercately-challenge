@@ -1,0 +1,14 @@
+
+<div class="product-item">
+  <img class="product-img" src="https://www.toutems.com.mx/media/product/554/547f39ef052c176ce39ce8cdbd05e8ef.png" alt="">
+  <div class="d-flex align-center space-between mt-10">
+    <h3><%= product.title %></h3>
+    <%= link_to "Ver más", product_path(product) %>
+  </div>
+  <p><%= product.description %></p>
+  <p>$<%= product.price %></p>
+  <div class="sale-section d-flex">
+    <input type="text">
+    <button class="btn btn-main mx-5">Agregar</button>
+  </div>
+</div>

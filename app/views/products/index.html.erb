@@ -1,0 +1,37 @@
+<div class="container">
+  <%= render partial: "layouts/breadcrumb", locals: { previus_message: "Volver al inicio", previus: root_path, current: "Lista de productos" } %>
+</div>
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <h2>Productos</h2>
+  
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th style="width">Producto</th>
+        <th>Descripción</th>
+        <th>Precio</th>
+        <th></th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <% @products.each do |product| %>
+        <tr>
+          <td><%= product.title %></td>
+          <td><%= product.description %></td>
+          <td>$<%= product.price %></td>
+          <td class="d-flex justify-center">
+            <%= link_to product, class: 'px-5 btn-action' do %> <i class="fa-solid fa-eye"></i> <% end %>
+            <%= link_to edit_product_path(product), class: 'px-5 btn-action' do %> <i class="fa-solid fa-pencil"></i> <% end %>
+            <%= link_to product, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'px-5 btn-action' do %> <i class="fa-solid fa-trash"></i> <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+  <br>
+  
+  <%= link_to 'Agregar producto', new_product_path, class: 'btn btn-main' %>
+</div>

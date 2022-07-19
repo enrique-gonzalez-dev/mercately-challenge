@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="title-bar d-flex space-between align-center">
+    <div class="title">
+      <h2>Todos los productos</h2>
+    </div>
+    <div class="order-select">
+      <select name="order" id="order-select" class="custom-select">
+        <option value="null">Ordenar por</option>
+        <option value="price-desc">$$$ - $</option>
+        <option value="price-asc">$ - $$$</option>
+        <option value="alph-asc">A - Z</option>
+        <option value="alph-desc">Z - A</option>
+      </select>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <% if @products.any? %>
+    <div class="products-list">
+      <% @products.each do |product| %>
+        <%= render partial: "product", locals: { product: product } %>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="text-center">
+      <p>Sin productos disponibles</p>
+    </div>
+  <% end %>
+</div>
+
+<script>
+
+  const orderSelect = document.querySelector("#order-select");
+  orderSelect.addEventListener('change', () => {
+    let params = `order=${orderSelect.value}`;
+    document.location.search = params;
+    
+  });
+
+</script>

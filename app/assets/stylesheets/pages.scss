@@ -14,10 +14,12 @@ html {
 
 body{
     font-family: 'Lato', sans-serif;
+    padding-bottom: 120px;
 }
 
 :root{
-    --main-color: rgb(12, 104, 216);
+    --main-color: #3daae1;
+    --main-hover-color: #2997cf;
 }
 
 .navbar{
@@ -55,12 +57,12 @@ body{
 
 footer {
     background-color: var(--main-color);
-    position: absolute;
-    bottom: 0;
     width: 100%;
     min-height: 80px;
     padding: 20px 0;
     color: #ffffff;
+    position: fixed;
+    bottom: 0;
 }
 .d-flex{
     display: flex;
@@ -68,6 +70,26 @@ footer {
 
 .space-between{
     justify-content: space-between;
+}
+
+.align-center{
+    align-items: center;
+}
+
+.justify-end{
+    justify-content: end;
+}
+
+.link-basic{
+    text-decoration: none;
+    color: var(--main-color);
+    font-weight: bold;
+    transition: all .3s;
+}
+
+.link-basic:hover{
+    color: var(--main-hover-color);
+    text-decoration: underline var(--main-color);
 }
 
 .card-m{
@@ -83,4 +105,34 @@ footer {
     position: absolute;
     bottom: -3px;
     font-size: 12px;
+}
+
+.custom-select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #cacaca;
+    padding: 8px 20px;
+    border: 1px #cacaca;
+    border-radius: 5px;
+    text-align: center;
+    transition: ease .2s;
+}
+
+.custom-select:hover{
+    box-shadow: 2px 2px 6px #cacaca;
+    cursor: pointer;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+.btn-action{
+    color: var(--main-color);
+    transition: ease .3s;
+}
+
+.btn-action:hover{
+    color: #868686;
+    transform: scale(1.1);
 }

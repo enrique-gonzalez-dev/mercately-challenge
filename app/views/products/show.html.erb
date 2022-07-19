@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+  <%= render partial: "layouts/breadcrumb", locals: { previus_message: "Volver al listado", previus: products_path, current: "Ver producto" } %>
+</div>
+
+<div class="container">
+  <h3>
+    <%= @product.title %>
+  </h3>
+  
+  <p>
+    <%= @product.description %>
+  </p>
+  
+  <p>
+    <strong>Precio:</strong>
+    $<%= @product.price %>
+  </p>
+  <br>
+</div>
+
+<div class="container">
+  <%= link_to 'Editar', edit_product_path(@product), class: "link-basic" %> | 
+  <%= link_to 'Regresar', products_path, class: "link-basic" %>
+</div>

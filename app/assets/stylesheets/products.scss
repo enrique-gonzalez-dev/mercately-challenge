@@ -1,0 +1,153 @@
+// Place all the styles related to the Products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+.products-list{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+}
+
+.mt-10{
+    margin-top: 20px;
+}
+
+.product-item{
+    background-color: #efefef;
+    padding: 15px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #424242;
+    transition: ease .1s;
+}
+
+.product-item h3{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.product-item p{
+    margin-top: 10px;
+}
+
+.product-item a{
+    text-decoration: none;
+    color: #424242;
+    transition: ease 1s;
+}
+
+.product-item a:hover{
+    text-decoration: underline;
+    color: #000000;
+}
+
+.product-item img{
+    width: 100%;
+    border-radius: 10%;
+}
+
+.min-btn{
+    border: none;
+    min-height: 35px;
+    padding: 8px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.btn{
+    border: none;
+    min-height: 35px;
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.btn-main{
+    background-color: var(--main-color);
+    color: #ffffff;
+    transition: ease .1s;
+    
+}
+
+.btn-danger{
+    background-color: #d60202;
+    color: #ffffff;
+    transition: ease .1s;
+    
+}
+
+.btn-danger:hover{
+    background-color: #e80000;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px #d60202;
+}
+
+.btn-main:hover{
+    background-color: var(--main-hover-color);
+    cursor: pointer;
+    box-shadow: 2px 2px 5px var(--main-color);
+}
+
+input{
+    border-radius: 5px;
+    background-color: #fefefe;
+    border: 1px solid#a9a9a9;
+    width: 100%;
+    padding: 7px 7px;
+    margin: 12px 0;
+}
+
+textarea{
+    border-radius: 5px;
+    background-color: #fefefe;
+    border: 1px solid#a9a9a9;
+    width: 100%;
+    padding: 7px 7px;
+    margin: 12px 0;
+}
+
+.custom-table{
+    text-align: left;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.custom-table td, .custom-table th{
+    border: .5px solid #ddd;
+    padding: 8px;
+}
+
+.custom-table tr:nth-child(even){background-color: #f2f2f2;}
+
+.custom-table tr:hover {background-color: #ddd;}
+
+.custom-table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: var(--main-color);
+  color: white;
+}
+
+.px-10{
+    padding: 0 10px;
+}
+.px-5{
+    padding: 0 5px;
+}
+.ml-10{
+    margin-left: 10px;
+}
+
+.mx-5{
+    margin: 0 5px;
+}
+
+.justify-center{
+    justify-content: center;
+}
+
+.custom-field{
+    width: 100%;
+}
